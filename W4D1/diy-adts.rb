@@ -14,9 +14,10 @@ class Stack
     def peek
       @stack[-1]
     end
-  end
+end
 
-  class Queue
+
+class Queue
     def initialize
         @queue = Array.new
     end
@@ -33,4 +34,34 @@ class Stack
         @queue[0]
     end
 
-  end
+end
+
+
+class Map
+    def initialize
+        @map = Array.new
+    end
+
+    def set(key, value)
+        @map.map do |pair|
+            if key == pair[0]
+                [key, value]
+            else
+                pair
+            end
+        end
+    end
+
+    def get(key)
+        @map.each { |pair| return pair[1] if pair[0] == key }
+    end
+
+    def delete(key)
+        @map.reject { |pair| pair[0] == key }
+    end
+
+    def show
+        @map
+    end
+
+end
